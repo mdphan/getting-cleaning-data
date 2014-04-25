@@ -3,7 +3,7 @@ fileUrl <- "https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%2
 if (!file.exists("UCI HAR Dataset")) {
     download.file(fileUrl, destfile = "Project_dataset.zip", method = "curl")
     unzip("Project_dataset.zip")
-    dateDownloaded <- date()
+    dateDownloaded <- format(Sys.Date(), "%Y%m%d")
 }
 
 # Read in data
@@ -22,10 +22,6 @@ subject_test <- read.table(file="./UCI HAR Dataset/test/subject_test.txt")
 data <- rbind(X_train, X_test)
 y_data <- rbind(y_train, y_test)
 subject_data <- rbind(subject_train, subject_test)
-
-# Write descriptive names for variables
-# names(data) <- variable_list[,2]
-
 
 # Extracts only the measurements on the mean and standard deviation for each measurement
 select_variable <- sort(c(grep("-mean\\(\\)", variable_list[,2]),grep("-std\\(\\)", variable_list[,2])))
@@ -54,5 +50,6 @@ get_tidydata <- function(data, n.subject = 30, activity = activity_labels) {
 }
 
 tidydata <- get_tidydata(select_data, 30, activity_labels)
-write.table(tidydata, file="tidydata.txt", sep="\t")
+write.table(tidydata, file=paste("tidydata.",dateDownloaded,".txt", sep=""), sep="\t")
+
 

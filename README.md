@@ -6,10 +6,10 @@ The purpose of this project is to demonstrate the ability to collect, work with,
 ## The data
 Here are the data for the project: 
 
-https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip 
+`https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip` 
 
-## The run_analysis.R script
-This is the script to generate the tidy data set (see tidydata.txt).
+## The `run_analysis.R` script
+This is the script to generate the tidy data set (see `tidydata.txt`).
 The script will:
 
 1. Download the source data using the link above (hard coded into the script).
@@ -19,3 +19,15 @@ The script will:
 5. Uses descriptive activity names to name the activities in the data set
 6. Appropriately labels the data set with descriptive activity names. 
 7. Creates a tidy data set with the average of each variable for each activity and each subject. 
+
+## Usage
+
+Copy `run_analysis.R` to your working directory.
+
+In R, run
+
+```
+source('run_analysis.R', echo=TRUE)
+```
+	
+	
